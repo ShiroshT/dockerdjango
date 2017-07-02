@@ -11,9 +11,21 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
+import django.core.handlers.wsgi
+
 
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "progx.settings")
 
-application = get_wsgi_application()
+application = django.core.handlers.wsgi.WSGIHandler()
+# application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
+
+
+
+
+
+# This application object is used by the development server
+# as well as any WSGI server configured to use this file.
+
+
