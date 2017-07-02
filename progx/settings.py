@@ -27,7 +27,7 @@ SECRET_KEY = 'y6xm_u@64js9=94c@#uf#i5v*j*2lrp0aihk_ynr%_6ni3s2b@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['refugiomadridapp.herokuapp.com']
 
 
 # Application definition
@@ -122,10 +122,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 
-STATIC_PATH = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (
-        STATIC_PATH,
-)
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static'
+
+
+# STATIC_PATH = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = (
+#         STATIC_PATH,
+# )
+
+
